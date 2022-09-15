@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Mauve.Core.Extensibility
+namespace Mauve.Extensibility
 {
     /// <summary>
     /// Represents a collection of extension methods for <see cref="IComparable"/> instances.
