@@ -59,6 +59,11 @@ namespace Mauve.Text
         /// <typeparam name="T">The type to convert the result to.</typeparam>
         /// <param name="result">The resulting selection converted to the specified type.</param>
         public void Remainder<T>(out T result) => Next(_fullString.Length - _index, out result);
+        /// <summary>
+        /// Skips the specified number of characters in the queue from the current index.
+        /// </summary>
+        /// <param name="length">The number of characters to skip.</param>
+        public void Skip(int length) => _index += length;
 
         #endregion
 
