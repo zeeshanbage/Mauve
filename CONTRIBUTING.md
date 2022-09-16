@@ -16,3 +16,7 @@ To get an overview of the project, read the [README](README.md). Here are some r
 - [Set up Git](https://docs.github.com/en/get-started/quickstart/set-up-git)
 - [GitHub flow](https://docs.github.com/en/get-started/quickstart/github-flow)
 - [Collaborating with pull requests](https://docs.github.com/en/github/collaborating-with-pull-requests)
+
+## Attribution
+
+This contributing document is adapted from the [GitHub Docs](https://github.com/github/docs) contributing file.
