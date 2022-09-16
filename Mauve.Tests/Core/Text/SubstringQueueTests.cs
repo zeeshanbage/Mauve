@@ -22,6 +22,9 @@ namespace Mauve.Tests.Core.Text
 
         #region Tests
 
+        /// <summary>
+        /// Tests the complete parsing of the test string.
+        /// </summary>
         [TestMethod("Full Parse")]
         public void FullParse()
         {
