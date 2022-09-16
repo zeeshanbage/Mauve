@@ -3,7 +3,7 @@ From basic extension methods to complete implementations of design patterns, Mau
 
 Grab a brush and join us!
 
-<sub>Place social banner here.</sub>
+![Mauve Banner](/mauve-banner.png "Mauve Banner")
 
 ## Extensions
 Mauve offers a variety of useful extension methods for the most common data types in the `C#` language:
