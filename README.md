@@ -12,4 +12,4 @@ Mauve offers a variety of useful extension methods for the most common data type
  - `string`
  - `IComparable`
 
-<sub>*See our [`Extensibility`](https://github.com/tacosontitan/Mauve/tree/main/Mauve/Extensibility) namespace for a more comprehensive list.*</sub>
+<sub>*See our [`wiki`](https://github.com/tacosontitan/Mauve/wiki/Mauve.Extensibility) for more details.*</sub>
