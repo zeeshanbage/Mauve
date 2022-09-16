@@ -1,6 +1,6 @@
 # Welcome 👋
 
-Thank you for investing your time in contributing to our project! Any contribution you make will be reflected in one of [Mauve](https://docs.github.com/en)'s upcoming releases. ✨ 
+Thank you for investing your time in contributing to our project! Any contribution you make will be reflected in one of [Mauve](https://github.com/tacosontitan/Mauve)'s upcoming releases. ✨ 
 
 Read our [Code of Conduct](CODE_OF_CONDUCT.md) ⚖️ to keep our community approachable and respectable.
 
