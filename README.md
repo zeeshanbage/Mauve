@@ -3,7 +3,8 @@ From basic extension methods to complete implementations of design patterns, Mau
 
 Grab a brush and join us!
 
-<sub>Place social banner here.</sub>
+![Mauve Banner](/mauve-banner.png "Mauve Banner")
+<sub>***Note**: Our chosen shade of mauve has a hexadecimal color code of `0xe0b0ff`.*</sub>
 
 ## Extensions
 Mauve offers a variety of useful extension methods for the most common data types in the `C#` language:
@@ -11,4 +12,4 @@ Mauve offers a variety of useful extension methods for the most common data type
  - `string`
  - `IComparable`
 
-<sub>*See our [`Extensibility`](https://github.com/tacosontitan/Mauve/tree/main/Mauve/Extensibility) namespace for a more comprehensive list.*</sub>
+*See our [wiki](https://github.com/tacosontitan/Mauve/wiki/Mauve.Extensibility) for more details.*
