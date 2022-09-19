@@ -13,5 +13,3 @@ Mauve offers a variety of useful extension methods for the most common data type
  - `IComparable`
 
 *See our [wiki](https://github.com/tacosontitan/Mauve/wiki/Mauve.Extensibility) for more details.*
-
-Testing...
