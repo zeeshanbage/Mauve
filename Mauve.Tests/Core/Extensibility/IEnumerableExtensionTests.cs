@@ -18,7 +18,9 @@ namespace Mauve.Tests.Core.Extensibility
 
             try
             {
-                guids.ForEach(guid => Console.WriteLine(guid));
+                int iteratedGuids = 0;
+                guids.ForEach(guid => Console.WriteLine($"{++iteratedGuids}: {guid}"));
+                Assert.AreEqual(guids.Length, iteratedGuids);
             } catch (Exception e)
             {
                 Assert.Fail(e.Message);
