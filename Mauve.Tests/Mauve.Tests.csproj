@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\Extensibility\IComparableExtensionTests.cs" />
+    <Compile Include="Core\Extensibility\StringExtensionsTests.cs" />
     <Compile Include="Core\Text\SubstringQueueTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
