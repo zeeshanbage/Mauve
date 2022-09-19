@@ -8,7 +8,7 @@ namespace Mauve.Patterns
 {
     public interface IMediatorClient<T>
     {
-        void HandleIncomingData(T data, IMediatorClient<T> sender);
-        Task HandleIncomingDataAsync(T data, IMediatorClient<T> sender);
+        void HandleIncomingData(T data);
+        Task HandleIncomingDataAsync(T data);
     }
 }
