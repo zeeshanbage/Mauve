@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensibility\IComparableExtensions.cs" />
+    <Compile Include="Extensibility\IEnumerableExtensions.cs" />
     <Compile Include="Extensibility\StringExtensions.cs" />
     <Compile Include="Patterns\Mediator\IMediator.cs" />
     <Compile Include="Patterns\Mediator\IMediatorClient.cs" />
