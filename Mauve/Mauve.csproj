@@ -7,7 +7,7 @@
     <ProjectGuid>{CEAB28E3-6023-45DE-8CD6-AE8F4FBC9651}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Mauve.Core</RootNamespace>
+    <RootNamespace>Mauve</RootNamespace>
     <AssemblyName>Mauve.Core</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -44,6 +44,7 @@
     <Compile Include="Extensibility\IComparableExtensions.cs" />
     <Compile Include="Extensibility\StringExtensions.cs" />
     <Compile Include="Patterns\Mediator\IMediator.cs" />
+    <Compile Include="Patterns\Mediator\IMediatorClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Text\SubstringQueue.cs" />
   </ItemGroup>
