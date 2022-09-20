@@ -17,6 +17,10 @@ To get an overview of the project, read the [README](README.md). Here are some r
 - [GitHub flow](https://docs.github.com/en/get-started/quickstart/github-flow)
 - [Collaborating with pull requests](https://docs.github.com/en/github/collaborating-with-pull-requests)
 
+## Getting started
+
+To navigate our codebase with confidence, see [the wiki](https://github.com/tacosontitan/Mauve/wiki). :confetti_ball: For more information on how we style our code files, see [the styling guide](.resources/STYLING_GUIDE.md).
+
 ## Attribution
 
 This contributing document is adapted from the [GitHub Docs](https://github.com/github/docs) contributing file.
