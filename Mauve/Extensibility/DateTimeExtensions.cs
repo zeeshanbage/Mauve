@@ -22,13 +22,17 @@ namespace Mauve.Extensibility
 
         #region Private Methods
 
+        /// <summary>
+        /// Gets the format specifier for a specified <see cref="DateFormat"/>.
+        /// </summary>
+        /// <param name="format">The <see cref="DateFormat"/> to get the format specifier for.</param>
+        /// <returns>Returns the format specifier for a specified <see cref="DateFormat"/>.</returns>
         private static string GetFormatSpecifier(DateFormat format)
         {
             switch (format)
             {
                 case DateFormat.Iso8601: return "yyyy-MM-ddTHH:mm:ss.ffK";
                 case DateFormat.Rfc3339: return "yyyy-MM-dd'T'HH:mm:ss.fffK";
-                case DateFormat.UnixMilliseconds: return "";
                 case DateFormat.MsSql: return "yyyy-MM-dd HH:mm:ss.fff";
                 default: return string.Empty;
             }
