@@ -29,6 +29,12 @@ namespace Mauve
         /// <summary>
         /// The number of milliseconds that have elapsed since the Unix epoch, excluding leap seconds. The Unix epoch is 00:00:00 UTC on 1 January 1970.
         /// </summary>
-        UnixMilliseconds = 3
+        UnixMilliseconds = 3,
+        /// <summary>
+        /// Defines a date that is combined with a time of day with fractional seconds that is based on a 24-hour clock.
+        /// </summary>
+        /// <remarks>Calls to <see cref="DateTimeExtensions.Format(DateTime, DateFormat)"/> will use the format: <c>yyyy-MM-dd HH:mm:ss.fff</c>.</remarks>
+        /// <see href="https://learn.microsoft.com/en-us/sql/t-sql/functions/date-and-time-data-types-and-functions-transact-sql?view=sql-server-ver16"/>
+        MsSql = 4
     }
 }
