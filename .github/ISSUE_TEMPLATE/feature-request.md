@@ -27,5 +27,5 @@ A clear and concise description of what you want to happen. For example:
 ## 🎲 What have you already tried?
 A clear and concise description of any alternative solutions or features you've considered.
 
-## 🙋‍♀️ Is there anything else we should know?
+## 💁🏻‍♀️ Is there anything else we should know?
 Add any other context or screenshots about the feature request here.
