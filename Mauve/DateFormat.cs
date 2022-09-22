@@ -19,6 +19,12 @@ namespace Mauve
         /// </summary>
         /// <remarks>Calls to <see cref="DateTimeExtensions.Format(DateTime, DateFormat)"/> will use the format: <c>yyyy-MM-ddTHH:mm:ss.ffK</c>.</remarks>
         /// <see href="https://en.wikipedia.org/wiki/ISO_8601"/>
-        Iso8601 = 1
+        Iso8601 = 1,
+        /// <summary>
+        /// RFC 3339 deviates from ISO 8601 in allowing a zero time zone offset to be specified as "-00:00", which ISO 8601 forbids.
+        /// </summary>
+        /// <remarks>Calls to <see cref="DateTimeExtensions.Format(DateTime, DateFormat)"/> will use the format: <c>yyyy-MM-dd'T'HH:mm:ss.fffK</c>.</remarks>
+        /// <see href="https://en.wikipedia.org/wiki/ISO_8601#RFCs"/>
+        Rfc3339 = 2
     }
 }
