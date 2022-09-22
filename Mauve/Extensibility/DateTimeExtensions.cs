@@ -22,7 +22,17 @@ namespace Mauve.Extensibility
 
         #region Private Methods
 
-        private static string GetFormatSpecifier(DateFormat format) => string.Empty;
+        private static string GetFormatSpecifier(DateFormat format)
+        {
+            switch (format)
+            {
+                case DateFormat.Iso8601: return "";
+                case DateFormat.Rfc3339: return "";
+                case DateFormat.UnixMilliseconds: return "";
+                case DateFormat.MsSql: return "";
+                default: return string.Empty;
+            }
+        }
 
         #endregion
 
