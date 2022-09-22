@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Mauve.Net
+﻿namespace Mauve.Net
 {
+    /// <summary>
+    /// Represents an <see cref="INetworkRequest"/> instance utilized for requesting data over a network.
+    /// </summary>
     public interface INetworkRequest
     {
     }
