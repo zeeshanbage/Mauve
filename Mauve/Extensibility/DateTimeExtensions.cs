@@ -27,7 +27,7 @@ namespace Mauve.Extensibility
             switch (format)
             {
                 case DateFormat.Iso8601: return "yyyy-MM-ddTHH:mm:ss.ffK";
-                case DateFormat.Rfc3339: return "";
+                case DateFormat.Rfc3339: return "yyyy-MM-dd'T'HH:mm:ss.fffK";
                 case DateFormat.UnixMilliseconds: return "";
                 case DateFormat.MsSql: return "";
                 default: return string.Empty;
