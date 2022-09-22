@@ -25,7 +25,7 @@ namespace Mauve.Tests.Core.Text
         public void FullParse()
         {
             var queue = new SubstringQueue(TestString);
-            
+
             try
             {
                 // Parse the first string.

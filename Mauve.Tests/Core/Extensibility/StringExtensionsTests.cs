@@ -1,4 +1,5 @@
 ﻿using Mauve.Extensibility;
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Mauve.Tests.Core.Extensibility
