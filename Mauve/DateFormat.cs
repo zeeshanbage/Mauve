@@ -25,6 +25,10 @@ namespace Mauve
         /// </summary>
         /// <remarks>Calls to <see cref="DateTimeExtensions.Format(DateTime, DateFormat)"/> will use the format: <c>yyyy-MM-dd'T'HH:mm:ss.fffK</c>.</remarks>
         /// <see href="https://en.wikipedia.org/wiki/ISO_8601#RFCs"/>
-        Rfc3339 = 2
+        Rfc3339 = 2,
+        /// <summary>
+        /// The number of milliseconds that have elapsed since the Unix epoch, excluding leap seconds. The Unix epoch is 00:00:00 UTC on 1 January 1970.
+        /// </summary>
+        UnixMilliseconds = 3
     }
 }
