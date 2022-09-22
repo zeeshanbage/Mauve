@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AliasAttribute.cs" />
     <Compile Include="Extensibility\IComparableExtensions.cs" />
     <Compile Include="Extensibility\IEnumerableExtensions.cs" />
     <Compile Include="Extensibility\StringExtensions.cs" />
