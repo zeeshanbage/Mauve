@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AliasAttribute.cs" />
+    <Compile Include="DateFormat.cs" />
+    <Compile Include="Extensibility\DateTimeExtensions.cs" />
     <Compile Include="Extensibility\IComparableExtensions.cs" />
     <Compile Include="Extensibility\IEnumerableExtensions.cs" />
     <Compile Include="Extensibility\StringExtensions.cs" />
