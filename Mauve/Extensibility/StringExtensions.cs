@@ -13,11 +13,10 @@ namespace Mauve.Extensibility
         /// <returns></returns>
         public static bool Equals(this string firstString, string secondString, bool ignoreCase)
         {
-            if(ignoreCase)
+            if (ignoreCase)
             {
                 return firstString.Equals(secondString, StringComparison.InvariantCultureIgnoreCase);
-            }
-            else
+            } else
             {
                 return firstString.Equals(secondString, StringComparison.InvariantCulture);
             }
