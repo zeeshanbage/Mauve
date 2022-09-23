@@ -59,6 +59,9 @@ namespace Mauve.Security
             // Create the crypto transforms.
             _encryptionTransform = _managedRijndael.CreateEncryptor();
             _decryptionTransform = _managedRijndael.CreateDecryptor();
+
+            // Utilize unicode as the default encoding.
+            Encoding = Encoding.Unicode;
         }
         /// <summary>
         /// Creates a new instance of the <see cref="RijndaelCryptographyService"/> using <see cref="CipherMode.CBC"/> along with the specified initialization vector and key.
@@ -78,6 +81,8 @@ namespace Mauve.Security
             _encryptionTransform = _managedRijndael.CreateEncryptor();
             _decryptionTransform = _managedRijndael.CreateDecryptor();
 
+            // Utilize unicode as the default encoding.
+            Encoding = Encoding.Unicode;
         }
 
         #endregion
