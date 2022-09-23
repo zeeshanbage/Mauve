@@ -70,12 +70,16 @@ namespace Mauve.Security
         /// <param name="initializationVector">The initialization vector for the symmetric algorithm.</param>
         public RijndaelCryptographyService(byte[] key, byte[] initializationVector)
         {
-            // Create an instance of the managed Rijndael algorithm.
-            _managedRijndael = new RijndaelManaged { Mode = CipherMode.CBC };
-
             // Set the key and initialization vector.
             Key = key;
             InitializationVector = initializationVector;
+
+            // Create an instance of the managed Rijndael algorithm.
+            _managedRijndael = new RijndaelManaged {
+                Mode = CipherMode.CBC,
+                Key = Key,
+                IV = InitializationVector
+            };
 
             // Create the crypto transforms.
             _encryptionTransform = _managedRijndael.CreateEncryptor();
