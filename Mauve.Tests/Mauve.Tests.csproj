@@ -52,6 +52,7 @@
     <Compile Include="Core\Extensibility\IComparableExtensionTests.cs" />
     <Compile Include="Core\Extensibility\StringExtensionsTests.cs" />
     <Compile Include="Core\Extensibility\IEnumerableExtensionTests.cs" />
+    <Compile Include="Core\Security\RijndaelServiceTests.cs" />
     <Compile Include="Core\Text\SubstringQueueTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
