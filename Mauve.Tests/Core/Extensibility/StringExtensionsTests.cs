@@ -16,15 +16,14 @@ namespace Mauve.Tests.Core.Extensibility
 
             Assert.AreEqual(expected, result);
         }
-    }
+        [TestMethod]
+        [DataRow("this-is-a-test", "TEST", false, false)]
+        [DataRow("this-is-a-test", "TEST", true, true)]
+        public void ContainsTest(string first, string second, bool ignoreCase, bool expected)
+        {
+            var result = first.Contains(second, ignoreCase);
 
-    [TestMethod]
-    [DataRow("this-is-a-test", "TEST", false, false)]
-    [DataRow("this-is-a-test", "TEST", true, true)]
-    public void ContainsTest(string first, string second, bool ignoreCase, bool expected)
-    {
-        var result = first.Contains(second, ignoreCase);
-
-        Assert.AreEqual(expected, result);
+            Assert.AreEqual(expected, result);
+        }
     }
 }
