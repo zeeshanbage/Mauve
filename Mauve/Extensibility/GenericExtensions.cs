@@ -18,7 +18,7 @@ namespace Mauve.Extensibility
         /// <param name="input">The data to be serialized.</param>
         /// <param name="serializationMethod">The <see cref="SerializationMethod"/> that should be utilized for serialization.</param>
         /// <returns>Returns the input data serialized using the specified <see cref="SerializationMethod"/>.</returns>
-        public static string Serialize<T>(T input, SerializationMethod serializationMethod)
+        public static string Serialize<T>(this T input, SerializationMethod serializationMethod)
         {
             SerializationProvider serializationProvider;
             switch (serializationMethod)
