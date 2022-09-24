@@ -45,6 +45,7 @@
     <Compile Include="AliasAttribute.cs" />
     <Compile Include="DateFormat.cs" />
     <Compile Include="Extensibility\DateTimeExtensions.cs" />
+    <Compile Include="Extensibility\GenericExtensions.cs" />
     <Compile Include="Extensibility\IComparableExtensions.cs" />
     <Compile Include="Extensibility\IEnumerableExtensions.cs" />
     <Compile Include="Extensibility\StringExtensions.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\CryptographyService.cs" />
     <Compile Include="Security\RijndaelCryptographyService.cs" />
+    <Compile Include="SerializationMethod.cs" />
     <Compile Include="Text\SubstringQueue.cs" />
   </ItemGroup>
   <ItemGroup />
