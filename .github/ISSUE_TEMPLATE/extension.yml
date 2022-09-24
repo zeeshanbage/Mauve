@@ -1,6 +1,6 @@
-name: 🐙 Extension Method
+name: 🐙 Request a new Extension Method
 description: Have an idea to simplify a very repetative process for a specific type? While extension methods have a bad reputation, when implemented properly, they can be very powerful.
-labels: [feature request,framework,under review]
+labels: [enhancement,framework,under review]
 body:
   - type: input
     attributes:
