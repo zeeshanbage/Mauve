@@ -59,7 +59,7 @@ namespace Mauve.Extensibility
                 StringComparison.InvariantCulture;
 
             // Return whether or not the input string is equal to the comparison string, with respect to the comparison type.
-            return input.Equals(target, comparisonType);
+            return input?.Equals(target, comparisonType) == true;
         }
     }
 }
