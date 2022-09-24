@@ -9,7 +9,7 @@ body:
       placeholder: When I'm using a `foreach` loop, I can't get the next or previous element in my collection without having a separate variable or overly verbose code.
   - type: markdown
     value: |
-      ## 📝 How would you like it to work?
+      "📝 How would you like it to work?"
       Please give a brief explanation and a sample implementation. For example:
       > I would like to be able to use a `LINQ` style method to get the next element, for example:
       >
@@ -19,9 +19,6 @@ body:
       >     var previousItem = collection.PreviousOrDefault(item);
       > }
       > ```
-  - type: textarea
-    validations:
-      required: true
   - type: textarea
     attributes:
       label: 🎲 What have you already tried?
