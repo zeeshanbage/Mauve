@@ -9,6 +9,7 @@ namespace Mauve.Tests.Core.Extensibility
     [TestClass]
     public class IComparableExtensionTests
     {
+
         #region Constants
 
         private const int LowerBound = 1;
