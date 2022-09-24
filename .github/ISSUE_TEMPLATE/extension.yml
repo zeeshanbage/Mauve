@@ -2,7 +2,15 @@ name: Extension Method
 description: Have an idea to simplify a very repetative process for a specific type? While extension methods have a bad reputation, when implemented properly, they can be very powerful.
 labels: [feature request,framework,under review]
 body:
+  - type: input
+    attributes:
+      label: 🦖 What type is this extension method for?
+      description: Please include the namespace and type if applicable.
   - type: textarea
     attributes:
       label: 😭 What problem does your proposition aim to solve?
-      description: If your feature request is related to a problem, describe it clearly.
+      description: Please give a brief explanation and a sample implementation.
+  - type: textarea
+    attributes:
+      label: 📝 How would you like the extension method to work?
+      description: Please give a brief explanation and a sample implementation.
