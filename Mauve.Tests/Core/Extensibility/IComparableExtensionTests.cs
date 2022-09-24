@@ -22,5 +22,6 @@ namespace Mauve.Tests.Core.Extensibility
         [TestMethod("Within Range")] public void WithinRange() => Assert.IsTrue(3.WithinRange(LowerBound, UpperBound));
 
         #endregion
+
     }
 }
