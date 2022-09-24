@@ -21,7 +21,7 @@ namespace Mauve.Extensibility
                 StringComparison.InvariantCulture;
 
             // Return whether or not the input string contains comparison string, with respect to the comparison type.
-            return input?.IndexOf(target, comparisonType) >= 0;
+            return !(target is null) && input?.IndexOf(target, comparisonType) >= 0;
         }
         /// <summary>
         /// Deserializes the specified input utilizing the specified <see cref="SerializationMethod"/>.
