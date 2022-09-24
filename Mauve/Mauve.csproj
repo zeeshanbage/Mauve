@@ -60,7 +60,11 @@
     <Compile Include="Security\CryptographyService.cs" />
     <Compile Include="Security\RijndaelCryptographyService.cs" />
     <Compile Include="SerializationMethod.cs" />
+    <Compile Include="Serialization\BinarySerializationProvider.cs" />
+    <Compile Include="Serialization\JsonSerializationProvider.cs" />
+    <Compile Include="Serialization\RawSerializationProvider.cs" />
     <Compile Include="Serialization\SerializationProvider.cs" />
+    <Compile Include="Serialization\XmlSerializationProvider.cs" />
     <Compile Include="Text\SubstringQueue.cs" />
   </ItemGroup>
   <ItemGroup />

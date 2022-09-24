@@ -8,6 +8,10 @@ namespace Mauve.Extensibility
 {
     public static class GenericExtensions
     {
-        
+
+        #region Public Methods
+
+        #endregion
+
     }
 }
