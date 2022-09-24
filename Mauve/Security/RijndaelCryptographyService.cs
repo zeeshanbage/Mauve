@@ -3,6 +3,8 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
+using Mauve.Extensibility;
+
 using Newtonsoft.Json;
 
 namespace Mauve.Security
@@ -16,8 +18,6 @@ namespace Mauve.Security
         #region Fields
 
         private readonly RijndaelManaged _managedRijndael;
-        private readonly ICryptoTransform _encryptionTransform;
-        private readonly ICryptoTransform _decryptionTransform;
 
         #endregion
 
@@ -56,10 +56,6 @@ namespace Mauve.Security
             _managedRijndael.GenerateKey();
             Key = _managedRijndael.Key;
 
-            // Create the crypto transforms.
-            _encryptionTransform = _managedRijndael.CreateEncryptor();
-            _decryptionTransform = _managedRijndael.CreateDecryptor();
-
             // Utilize unicode as the default encoding.
             Encoding = Encoding.Unicode;
         }
@@ -75,15 +71,12 @@ namespace Mauve.Security
             InitializationVector = initializationVector;
 
             // Create an instance of the managed Rijndael algorithm.
-            _managedRijndael = new RijndaelManaged {
+            _managedRijndael = new RijndaelManaged
+            {
                 Mode = CipherMode.CBC,
                 Key = Key,
                 IV = InitializationVector
             };
-
-            // Create the crypto transforms.
-            _encryptionTransform = _managedRijndael.CreateEncryptor();
-            _decryptionTransform = _managedRijndael.CreateDecryptor();
 
             // Utilize unicode as the default encoding.
             Encoding = Encoding.Unicode;
@@ -93,38 +86,51 @@ namespace Mauve.Security
 
         #region Public Methods
 
-        public override void Dispose()
-        {
-            _encryptionTransform.Dispose();
-            _decryptionTransform.Dispose();
-            _managedRijndael.Dispose();
-        }
+        public override void Dispose() => _managedRijndael.Dispose();
         public override T Decrypt<T>(string input)
         {
+            string decryptedData = string.Empty;
             byte[] encodedData = Encoding.GetBytes(input);
-            using (var memoryStream = new MemoryStream(encodedData))
-            {
-                using (var cryptoStream = new CryptoStream(memoryStream, _decryptionTransform, CryptoStreamMode.Read))
-                {
-                    // Read the decrypted data to the buffer.
-                    byte[] decryptedData = new byte[encodedData.Length];
-                    int decryptedByteCount = cryptoStream.Read(decryptedData, 0, decryptedData.Length);
 
-                    string utf8Data = Encoding.UTF8.GetString(decryptedData, 0, decryptedByteCount);
-                    return typeof(T) == typeof(string) ? (T)Convert.ChangeType(utf8Data, typeof(T)) : JsonConvert.DeserializeObject<T>(utf8Data);
+            try
+            {
+                using (var memoryStream = new MemoryStream(encodedData))
+                {
+                    // Read the initialization vector from the stream.
+                    byte[] iv = new byte[16];
+                    int offset = 0;
+                    while (offset < iv.Length)
+                        offset += memoryStream.Read(iv, offset, iv.Length - offset);
+
+                    // Set the initialization vector and key.
+                    _managedRijndael.IV = iv;
+                    _managedRijndael.Key = Key;
+                    using (var cryptoStream = new CryptoStream(memoryStream, _managedRijndael.CreateDecryptor(), CryptoStreamMode.Read))
+                    using (var streamReader = new StreamReader(cryptoStream, Encoding))
+                        decryptedData = streamReader.ReadToEnd();
                 }
+            } finally
+            {
+                _managedRijndael.IV = InitializationVector;
             }
+
+            return decryptedData.Deserialize<T>(SerializationMethod.Json);
         }
         public override string Encrypt<T>(T input)
         {
+            // Ensure the Rijndael instance is using the proper iv and key.
+            _managedRijndael.Key = Key;
+            _managedRijndael.IV = InitializationVector;
+
             using (var memoryStream = new MemoryStream())
             {
-                using (var cryptoStream = new CryptoStream(memoryStream, _encryptionTransform, CryptoStreamMode.Write))
+                // Append the IV to the front of the stream.
+                memoryStream.Write(InitializationVector, 0, InitializationVector.Length);
+                using (var cryptoStream = new CryptoStream(memoryStream, _managedRijndael.CreateEncryptor(), CryptoStreamMode.Write))
                 {
                     // Get the raw data.
-                    byte[] rawData = typeof(T) == typeof(string)
-                        ? Encoding.UTF8.GetBytes((string)Convert.ChangeType(input, typeof(string)))
-                        : Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(input));
+                    string serializedData = input.Serialize(SerializationMethod.Json);
+                    byte[] rawData = Encoding.GetBytes(serializedData);
 
                     // Encode the supplied data and write it to the buffer.
                     cryptoStream.Write(rawData, 0, rawData.Length);
