@@ -1,0 +1,25 @@
+name: 🐲 Report a Problem (Framework)
+description: If you're encountering a problem with our framework, then you can report it here.
+labels: [bug,framework,under review]
+body:
+  - type: dropdown
+    id: version
+    attributes:
+      label: 🔢 Version
+      description: Which version of Mauve are you currently using?
+      options:
+        - 🐣 Pre-Release
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: 😭 What's hapening?
+      description: Please give a brief explanation and a sample implementation.
+  - type: textarea
+    attributes:
+      label: 📝 What was your expectation?
+      description: Please give a brief explanation.
+  - type: textarea
+    attributes:
+      label: 🪜 Steps to Reproduce
+      description: When you reproduced this issue in an isolated environment, what steps did you take?
