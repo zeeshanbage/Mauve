@@ -1,9 +1,32 @@
 ﻿using System;
 
+using Mauve.Serialization;
+
 namespace Mauve.Extensibility
 {
     public static class StringExtensions
     {
+        /// <summary>
+        /// Deserializes the specified input utilizing the specified <see cref="SerializationMethod"/>.
+        /// </summary>
+        /// <typeparam name="T">The type of the data to be deserialized.</typeparam>
+        /// <param name="input">The serialized data to be deserialized.</param>
+        /// <param name="serializationMethod">The <see cref="SerializationMethod"/> that should be utilized for deserialization.</param>
+        /// <returns>Returns the input deserialized using the specified <see cref="SerializationMethod"/>.</returns>
+        public static T Deserialize<T>(this string input, SerializationMethod serializationMethod)
+        {
+            SerializationProvider serializationProvider;
+            switch (serializationMethod)
+            {
+                case SerializationMethod.Binary: serializationProvider = new BinarySerializationProvider(); break;
+                case SerializationMethod.Xml: serializationProvider = new XmlSerializationProvider(); break;
+                case SerializationMethod.Json: serializationProvider = new JsonSerializationProvider(); break;
+                case SerializationMethod.Yaml: serializationProvider = null; break;
+                default: serializationProvider = new RawSerializationProvider(); break;
+            }
+
+            return serializationProvider.Deserialize<T>(input);
+        }
         /// <summary>
         /// Checks whether this string and an input string have the same value. A parameter specifies if case should be ignored.
         /// </summary>
@@ -21,7 +44,6 @@ namespace Mauve.Extensibility
             // Return whether or not the input string is equal to the comparison string, with respect to the comparison type.
             return input.Equals(target, comparisonType);
         }
-
         /// <summary>
         /// Checks whether this string and an input string contain the same value. A parameter specifies if case should be ignored.
         /// </summary>
@@ -35,8 +57,7 @@ namespace Mauve.Extensibility
             {
                 // If ignoreCase is set to true, we'll ignore the case
                 return firstString.IndexOf(secondString, StringComparison.InvariantCultureIgnoreCase) >= 0;
-            }
-            else
+            } else
             {
                 // If ignoreCase is false/not set, we won't ignore the case
                 return firstString.IndexOf(secondString, StringComparison.InvariantCulture) >= 0;
