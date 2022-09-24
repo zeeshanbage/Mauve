@@ -13,7 +13,7 @@ namespace Mauve.Serialization
         /// <summary>
         /// Creates a new instance of <see cref="RawSerializationProvider"/>.
         /// </summary>
-        public RawSerializationProvider() : base(SerializationMethod.Json) { }
+        public RawSerializationProvider() : base(SerializationMethod.None) { }
 
         #endregion
 
