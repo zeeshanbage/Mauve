@@ -7,6 +7,25 @@ namespace Mauve.Extensibility
     public static class StringExtensions
     {
         /// <summary>
+        /// Checks whether this string and an input string contain the same value. A parameter specifies if case should be ignored.
+        /// </summary>
+        /// <param name="firstString"></param>
+        /// <param name="secondString"></param>
+        /// <param name="ignoreCase"></param>
+        /// <returns></returns>
+        public static bool Contains(this string firstString, string secondString, bool ignoreCase)
+        {
+            if (ignoreCase)
+            {
+                // If ignoreCase is set to true, we'll ignore the case
+                return firstString.IndexOf(secondString, StringComparison.InvariantCultureIgnoreCase) >= 0;
+            } else
+            {
+                // If ignoreCase is false/not set, we won't ignore the case
+                return firstString.IndexOf(secondString, StringComparison.InvariantCulture) >= 0;
+            }
+        }
+        /// <summary>
         /// Deserializes the specified input utilizing the specified <see cref="SerializationMethod"/>.
         /// </summary>
         /// <typeparam name="T">The type of the data to be deserialized.</typeparam>
@@ -43,25 +62,6 @@ namespace Mauve.Extensibility
 
             // Return whether or not the input string is equal to the comparison string, with respect to the comparison type.
             return input.Equals(target, comparisonType);
-        }
-        /// <summary>
-        /// Checks whether this string and an input string contain the same value. A parameter specifies if case should be ignored.
-        /// </summary>
-        /// <param name="firstString"></param>
-        /// <param name="secondString"></param>
-        /// <param name="ignoreCase"></param>
-        /// <returns></returns>
-        public static bool Contains(this string firstString, string secondString, bool ignoreCase)
-        {
-            if (ignoreCase)
-            {
-                // If ignoreCase is set to true, we'll ignore the case
-                return firstString.IndexOf(secondString, StringComparison.InvariantCultureIgnoreCase) >= 0;
-            } else
-            {
-                // If ignoreCase is false/not set, we won't ignore the case
-                return firstString.IndexOf(secondString, StringComparison.InvariantCulture) >= 0;
-            }
         }
     }
 }
