@@ -29,19 +29,19 @@
         #region Public Methods
 
         /// <summary>
-        /// Serializes the input data utilizing the current serialization configuration.
-        /// </summary>
-        /// <typeparam name="T">The type of the data to be serialized.</typeparam>
-        /// <param name="input">The data to be serialized.</param>
-        /// <returns>Returns the input data serialized using the specified <see cref="Mauve.SerializationMethod"/>.</returns>
-        public abstract string Serialize<T>(T input);
-        /// <summary>
         /// Deserializes the input string utilizing the current serialization configuration.
         /// </summary>
         /// <typeparam name="T">The type to convert the deserialized data to.</typeparam>
         /// <param name="input">zthe input string containing the serialized data.</param>
         /// <returns>Returns the input string deserialized using the specified <see cref="Mauve.SerializationMethod"/>.</returns>
         public abstract T Deserialize<T>(string input);
+        /// <summary>
+        /// Serializes the input data utilizing the current serialization configuration.
+        /// </summary>
+        /// <typeparam name="T">The type of the data to be serialized.</typeparam>
+        /// <param name="input">The data to be serialized.</param>
+        /// <returns>Returns the input data serialized using the specified <see cref="Mauve.SerializationMethod"/>.</returns>
+        public abstract string Serialize<T>(T input);
 
         #endregion
 
