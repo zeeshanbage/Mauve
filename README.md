@@ -11,5 +11,9 @@ Mauve offers a variety of useful extension methods for the most common data type
 
  - `string`
  - `IComparable`
+ - `IEnumerable<T>`
+ - `DateTime`
+
+ Additionally, there are a few extension methods using generics for type safety that apply to all types.
 
 *See our [wiki](https://github.com/tacosontitan/Mauve/wiki/Mauve.Extensibility) for more details.*
