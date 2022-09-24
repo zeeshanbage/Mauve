@@ -60,6 +60,7 @@
     <Compile Include="Security\CryptographyService.cs" />
     <Compile Include="Security\RijndaelCryptographyService.cs" />
     <Compile Include="SerializationMethod.cs" />
+    <Compile Include="Serialization\SerializationProvider.cs" />
     <Compile Include="Text\SubstringQueue.cs" />
   </ItemGroup>
   <ItemGroup />
