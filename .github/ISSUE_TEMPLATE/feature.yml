@@ -1,0 +1,36 @@
+name: Feature Request (TEST)
+description: Request a cool new feature for the project.
+labels: [feature request]
+body:
+  - type: textarea
+    attributes:
+      label: 😭 What problem does your proposition aim to solve?
+      description: If your feature request is related to a problem, describe it clearly.
+  - type: textarea
+    attributes:
+      label: 📝 How would you like it to work?
+      description: Describe your solution/idea.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: 🎲 What have you already tried?
+      description: Describe alternatives you've considered
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: |
+        ---
+
+        Test of markdown area.
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Which version of Mauve are you using?
+      placeholder: "Pre-Release"
+  - type: textarea
+    attributes:
+      label: Comments
+      description: Additional information, comments or screenshots about the feature request.
