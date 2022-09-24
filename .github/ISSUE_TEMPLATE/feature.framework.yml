@@ -1,6 +1,6 @@
-name: Feature Request (Fancy)
-description: Request a cool new feature for the project.
-labels: [feature request]
+name: 💥 Request a new Feature (Framework)
+description: Have an idea that would make life easier for others? You can request a new feature for our framework here.
+labels: [enhancement,framework,under review]
 body:
   - type: textarea
     attributes:
@@ -35,10 +35,10 @@ body:
   - type: dropdown
     id: version
     attributes:
-      label: Version
-      description: 🔢 Which version of Mauve are you currently using?
+      label: 🔢 Version
+      description: Which version of Mauve are you currently using?
       options:
-        - Pre-Release
+        - 🐣 Pre-Release
     validations:
       required: true
   - type: textarea
