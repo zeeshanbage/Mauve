@@ -19,10 +19,11 @@ Mauve offers a variety of useful extension methods for the most common data type
 ## Release Notes
 Here you can find the most recent release notes for each Mauve product.
 
-### Current Versions
- - Mauve Framework: 🐣 Pre-Release
+## Framework
+ - Current Version: 🐣 Pre-Release
    - Dapper Support Kit: 🐣 Pre-Release
    - RestSharp Support Kit: 🐣 Pre-Release
- - Mauve Extension
-   - Visual Studio Community: 🐣 Pre-Release
-   - Visual Studio Code: 🐣 Pre-Release
+
+## Extension
+ - Visual Studio Community: 🐣 Pre-Release
+ - Visual Studio Code: 🐣 Pre-Release
