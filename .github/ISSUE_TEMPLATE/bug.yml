@@ -11,6 +11,19 @@ body:
         - 🐣 Pre-Release
     validations:
       required: true
+  - type: dropdown
+    id: product
+    attributes:
+      label: 🌠 Product
+      description: Which sub-product of Mauve is this feature for?
+      options:
+        - Ⓜ️ Framework
+        - 📝 Dapper Support Kit
+        - 💻 RestSharp Support Kit
+        - 🦄 Visual Studio Community Extension
+        - 🐲 Visual Studio Code Extension
+    validations:
+      required: true
   - type: textarea
     attributes:
       label: 😭 What's hapening?
