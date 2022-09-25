@@ -61,24 +61,13 @@
               <CommandFlag>DefaultInvisible</CommandFlag>
               <CommandFlag>DynamicVisibility</CommandFlag>
           If you do not want an image next to your command, remove the Icon node /> -->
-			<Button guid="guidVisualStudioCommunityPackageCmdSet" id="CleanseAndSaveId" priority="0x0100" type="Button">
+			<Button guid="guidVisualStudioCommunityPackageCmdSet" id="StandardizeId" priority="0x0100" type="Button">
 				<Parent guid="guidVisualStudioCommunityPackageCmdSet" id="MyMenuGroup" />
 				<Strings>
-					<ButtonText>Cleanse and Save</ButtonText>
+					<ButtonText>Standardize</ButtonText>
 				</Strings>
 			</Button>
 		</Buttons>
-
-		<!--The bitmaps section is used to define the bitmaps that are used for the commands.-->
-		<Bitmaps>
-			<!--  The bitmap id is defined in a way that is a little bit different from the others:
-            the declaration starts with a guid for the bitmap strip, then there is the resource id of the
-            bitmap strip containing the bitmaps and then there are the numeric ids of the elements used
-            inside a button definition. An important aspect of this declaration is that the element id
-            must be the actual index (1-based) of the bitmap inside the bitmap strip. -->
-			<Bitmap guid="guidImages" href="Resources\CleanseAndSave.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
-			<Bitmap guid="guidImages1" href="Resources\HelloWorld.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
-		</Bitmaps>
 	</Commands>
 
 	<Symbols>
@@ -89,7 +78,7 @@
 		<GuidSymbol name="guidVisualStudioCommunityPackageCmdSet" value="{7a54043a-2ca9-4ec1-8313-712c01c181ad}">
 			<IDSymbol name="MyMenuGroup" value="0x1020" />
 			<IDSymbol name="TopLevelMenu" value="0x1021" />
-			<IDSymbol name="CleanseAndSaveId" value="0x0100" />
+			<IDSymbol name="StandardizeId" value="0x0100" />
 		</GuidSymbol>
 
 		<GuidSymbol name="guidImages" value="{0a1196f5-d8cc-4eba-acde-250598d385a1}">
