@@ -4,6 +4,8 @@ using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
 
+using EnvDTE;
+
 using Mauve.VisualStudio.Community.Core;
 
 using Microsoft.VisualStudio.Shell;
@@ -26,11 +28,21 @@ namespace Mauve.VisualStudio.Community.Commands
 
         #region Protected Methods
 
-        protected override void Run()
+        protected override void Run(DTE dte)
         {
-            string currentFile = GetActiveDocumentName();
-            if (!string.IsNullOrWhiteSpace(currentFile))
+            ThreadHelper.ThrowIfNotOnUIThread();
+            Document activeDocument = dte?.ActiveDocument;
+            if (!(activeDocument is null))
             {
+                // Remove and sort usings.
+                activeDocument.DTE.ExecuteCommand("Edit.RemoveAndSort");
+
+                // Format document.
+                activeDocument.DTE.ExecuteCommand("Edit.FormatDocument");
+
+                // Save document.
+                _ = activeDocument.Save();
+
                 // Notify that we've finished our work.
                 Alert("Standardization complete.");
             }
