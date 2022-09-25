@@ -11,7 +11,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Mauve.Tests.Core.Security
 {
     [TestClass]
-    public class RijndaelServiceTests
+    public class RijndaelCryptographyProviderTests
     {
         [TestMethod]
         [DataRow("this is a test", false)]
@@ -24,7 +24,7 @@ namespace Mauve.Tests.Core.Security
         {
             try
             {
-                using (var rijndael = new RijndaelCryptographyService())
+                using (var rijndael = new RijndaelCryptographyProvider())
                 {
                     object encryptionResult = rijndael.Encrypt(input);
                     bool result = input.Equals(encryptionResult);
@@ -46,7 +46,7 @@ namespace Mauve.Tests.Core.Security
         {
             try
             {
-                using (var rijndael = new RijndaelCryptographyService())
+                using (var rijndael = new RijndaelCryptographyProvider())
                 {
                     string encryptionResult = rijndael.Encrypt(input);
                     object decryptionResult = rijndael.Decrypt<object>(encryptionResult);
@@ -72,7 +72,7 @@ namespace Mauve.Tests.Core.Security
                 byte[] iv = null;
                 byte[] key = null;
                 string encryptedValue = string.Empty;
-                using (var rijndael = new RijndaelCryptographyService())
+                using (var rijndael = new RijndaelCryptographyProvider())
                 {
                     iv = rijndael.InitializationVector;
                     key = rijndael.Key;
@@ -80,7 +80,7 @@ namespace Mauve.Tests.Core.Security
                     Assert.AreNotEqual(input, encryptedValue);
                 }
 
-                using (var rijndael = new RijndaelCryptographyService(key, iv))
+                using (var rijndael = new RijndaelCryptographyProvider(key, iv))
                 {
                     object decryptionResult = rijndael.Decrypt<object>(encryptedValue);
                     bool result = input.Equals(decryptionResult);
