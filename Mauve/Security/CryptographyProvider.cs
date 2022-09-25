@@ -3,15 +3,15 @@
 namespace Mauve.Security
 {
     /// <summary>
-    /// Represents a <see cref="CryptographyService"/> to be utilized for simplified encryption and decryption of data.
+    /// Represents a <see cref="CryptographyProvider"/> to be utilized for simplified encryption and decryption of data.
     /// </summary>
-    public abstract class CryptographyService : IDisposable
+    public abstract class CryptographyProvider : IDisposable
     {
 
         #region Public Methods
 
         /// <summary>
-        /// Disposes of the <see cref="CryptographyService"/> instance and its resources.
+        /// Disposes of the <see cref="CryptographyProvider"/> instance and its resources.
         /// </summary>
         public abstract void Dispose();
         /// <summary>
