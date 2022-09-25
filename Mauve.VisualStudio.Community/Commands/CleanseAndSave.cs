@@ -28,17 +28,12 @@ namespace Mauve.VisualStudio.Community.Commands
 
         protected override void Run()
         {
-            string message = "Hello World!";
-            string title = "Mauve";
-
-            // Show a message box to prove we were here
-            _ = VsShellUtilities.ShowMessageBox(
-                Package,
-                message,
-                title,
-                OLEMSGICON.OLEMSGICON_INFO,
-                OLEMSGBUTTON.OLEMSGBUTTON_OK,
-                OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
+            string currentFile = GetActiveDocumentName();
+            if (!string.IsNullOrWhiteSpace(currentFile))
+            {
+                // Notify that we've finished our work.
+                Alert("Cleanse and save complete.");
+            }
         }
 
         #endregion
