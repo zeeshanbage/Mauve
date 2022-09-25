@@ -1,4 +1,4 @@
-name: 🐲 Report a Problem (Framework)
+name: 🐲 Report a Problem
 description: If you're encountering a problem with our framework, then you can report it here.
 labels: [bug,framework,under review]
 body:
