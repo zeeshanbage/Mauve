@@ -59,13 +59,18 @@ namespace Mauve.Security
 
         #region Public Methods
 
-        public override void Dispose() => _managedRijndael.Dispose();
+        public override void Dispose()
+        {
+            _decryptionTransform.Dispose();
+            _encryptionTransform.Dispose();
+            _managedRijndael.Dispose();
+        }
         public override T Decrypt<T>(string input)
         {
             string decryptedData = string.Empty;
             byte[] encodedData = Convert.FromBase64String(input);
             using (var memoryStream = new MemoryStream(encodedData))
-            using (var cryptoStream = new CryptoStream(memoryStream, _managedRijndael.CreateDecryptor(Key, InitializationVector), CryptoStreamMode.Read))
+            using (var cryptoStream = new CryptoStream(memoryStream, _decryptionTransform, CryptoStreamMode.Read))
             using (var streamReader = new StreamReader(cryptoStream, Encoding))
                 decryptedData = streamReader.ReadToEnd();
 
@@ -75,7 +80,7 @@ namespace Mauve.Security
         {
             using (var memoryStream = new MemoryStream())
             {
-                using (var cryptoStream = new CryptoStream(memoryStream, _managedRijndael.CreateEncryptor(Key, InitializationVector), CryptoStreamMode.Write))
+                using (var cryptoStream = new CryptoStream(memoryStream, _encryptionTransform, CryptoStreamMode.Write))
                 {
                     // Get the raw data and write it to the stream.
                     string serializedData = input.Serialize(SerializationMethod.Json);
@@ -124,6 +129,10 @@ namespace Mauve.Security
             // Set the stored key and initialization vector.
             Key = key ?? _managedRijndael.Key;
             InitializationVector = initializationVector ?? _managedRijndael.IV;
+
+            // Create the encryption and decryption transforms.
+            _encryptionTransform = _managedRijndael.CreateEncryptor(Key, InitializationVector);
+            _decryptionTransform = _managedRijndael.CreateDecryptor(Key, InitializationVector);
 
             // Utilize unicode as the default encoding.
             Encoding = Encoding.Unicode;
