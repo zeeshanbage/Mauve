@@ -1,9 +1,7 @@
-# Mauve
+![Mauve Banner](/.resources/mauve-banner.png "Mauve Banner")
+
 From basic extension methods to complete implementations of design patterns, Mauve offers a colorful suite of functionality for utilization in even the grandest applications.
 
-Grab a brush and join us!
-
-![Mauve Banner](/.resources/mauve-banner.png "Mauve Banner")
 <sub>***Note**: Our chosen shade of mauve has a hexadecimal color code of `0xe0b0ff`.*</sub>
 
 ## Extensions
