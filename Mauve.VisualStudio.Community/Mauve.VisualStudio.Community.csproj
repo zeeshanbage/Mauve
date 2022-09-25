@@ -46,7 +46,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Commands\CleanseAndSave.cs" />
+    <Compile Include="Commands\Standardize.cs" />
     <Compile Include="Core\CommandBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VisualStudioCommunityPackage.cs" />
@@ -75,8 +75,6 @@
     </VSCTCompile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Commands\Resources\CleanseAndSave.png" />
-    <Content Include="Commands\Resources\HelloWorld.png" />
     <Content Include="mauve-banner.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
