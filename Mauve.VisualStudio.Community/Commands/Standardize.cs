@@ -13,12 +13,12 @@ using Task = System.Threading.Tasks.Task;
 
 namespace Mauve.VisualStudio.Community.Commands
 {
-    internal sealed class CleanseAndSave : CommandBase<CleanseAndSave>
+    internal sealed class Standardize : CommandBase<Standardize>
     {
 
         #region Constructor
 
-        public CleanseAndSave(AsyncPackage package, OleMenuCommandService commandService) :
+        public Standardize(AsyncPackage package, OleMenuCommandService commandService) :
             base(0x0100, new Guid("7a54043a-2ca9-4ec1-8313-712c01c181ad"), package, commandService)
         { }
 
@@ -32,7 +32,7 @@ namespace Mauve.VisualStudio.Community.Commands
             if (!string.IsNullOrWhiteSpace(currentFile))
             {
                 // Notify that we've finished our work.
-                Alert("Cleanse and save complete.");
+                Alert("Standardization complete.");
             }
         }
 
