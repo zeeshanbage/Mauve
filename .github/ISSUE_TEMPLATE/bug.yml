@@ -1,6 +1,6 @@
 name: 🐲 Report a Problem
-description: If you're encountering a problem with our framework, then you can report it here.
-labels: [bug,framework,under review]
+description: If you're encountering a problem, then you can report it here.
+labels: [bug,under review]
 body:
   - type: dropdown
     id: version
