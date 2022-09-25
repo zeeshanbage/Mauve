@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.Design;
 using System.Globalization;
+using System.Runtime.Remoting.Contexts;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -34,6 +35,11 @@ namespace Mauve.VisualStudio.Community.Commands
             Document activeDocument = dte?.ActiveDocument;
             if (!(activeDocument is null))
             {
+                // Get the current contents of the document.
+                //var textDocument = activeDocument.Object("TextDocument") as TextDocument;
+                //EditPoint editPoint = textDocument.StartPoint.CreateEditPoint();
+                //string documentText = editPoint.GetText(textDocument.EndPoint);
+
                 // Remove and sort usings.
                 activeDocument.DTE.ExecuteCommand("Edit.RemoveAndSort");
 
