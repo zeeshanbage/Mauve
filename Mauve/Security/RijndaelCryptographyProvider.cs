@@ -10,14 +10,16 @@ using Newtonsoft.Json;
 namespace Mauve.Security
 {
     /// <summary>
-    /// Represents a <see cref="CryptographyService"/> providing simplified access to the managed version of the <see cref="Rijndael"/> algorithm.
+    /// Represents a <see cref="CryptographyProvider"/> providing simplified access to the managed version of the <see cref="Rijndael"/> algorithm.
     /// </summary>
-    public class RijndaelCryptographyService : CryptographyService
+    public class RijndaelCryptographyProvider : CryptographyProvider
     {
 
         #region Fields
 
-        private readonly RijndaelManaged _managedRijndael;
+        private ICryptoTransform _encryptionTransform;
+        private ICryptoTransform _decryptionTransform;
+        private RijndaelManaged _managedRijndael;
 
         #endregion
 
@@ -41,9 +43,9 @@ namespace Mauve.Security
         #region Constructor
 
         /// <summary>
-        /// Creates a new instance of the <see cref="RijndaelCryptographyService"/> using <see cref="CipherMode.CBC"/> along with a generated initialization vector and key.
+        /// Creates a new instance of the <see cref="RijndaelCryptographyProvider"/> using <see cref="CipherMode.CBC"/> along with a generated initialization vector and key.
         /// </summary>
-        public RijndaelCryptographyService()
+        public RijndaelCryptographyProvider()
         {
             // Create an instance of the managed Rijndael algorithm.
             _managedRijndael = new RijndaelManaged { Mode = CipherMode.CBC };
@@ -57,29 +59,16 @@ namespace Mauve.Security
             Key = _managedRijndael.Key;
 
             // Utilize unicode as the default encoding.
-            Encoding = Encoding.Unicode;
+            Encoding = Encoding.UTF8;
         }
         /// <summary>
-        /// Creates a new instance of the <see cref="RijndaelCryptographyService"/> using <see cref="CipherMode.CBC"/> along with the specified initialization vector and key.
+        /// Creates a new instance of the <see cref="RijndaelCryptographyProvider"/> using <see cref="CipherMode.CBC"/> along with the specified initialization vector and key.
         /// </summary>
         /// <param name="key">The secret key to be utilized by the symmetric algorithm to encrypt and decrypt data.</param>
         /// <param name="initializationVector">The initialization vector for the symmetric algorithm.</param>
-        public RijndaelCryptographyService(byte[] key, byte[] initializationVector)
+        public RijndaelCryptographyProvider(byte[] key, byte[] initializationVector)
         {
-            // Set the key and initialization vector.
-            Key = key;
-            InitializationVector = initializationVector;
-
-            // Create an instance of the managed Rijndael algorithm.
-            _managedRijndael = new RijndaelManaged
-            {
-                Mode = CipherMode.CBC,
-                Key = Key,
-                IV = InitializationVector
-            };
-
-            // Utilize unicode as the default encoding.
-            Encoding = Encoding.Unicode;
+            
         }
 
         #endregion
@@ -91,41 +80,17 @@ namespace Mauve.Security
         {
             string decryptedData = string.Empty;
             byte[] encodedData = Encoding.GetBytes(input);
-
-            try
-            {
-                using (var memoryStream = new MemoryStream(encodedData))
-                {
-                    // Read the initialization vector from the stream.
-                    byte[] iv = new byte[16];
-                    int offset = 0;
-                    while (offset < iv.Length)
-                        offset += memoryStream.Read(iv, offset, iv.Length - offset);
-
-                    // Set the initialization vector and key.
-                    _managedRijndael.IV = iv;
-                    _managedRijndael.Key = Key;
-                    using (var cryptoStream = new CryptoStream(memoryStream, _managedRijndael.CreateDecryptor(), CryptoStreamMode.Read))
-                    using (var streamReader = new StreamReader(cryptoStream, Encoding))
-                        decryptedData = streamReader.ReadToEnd();
-                }
-            } finally
-            {
-                _managedRijndael.IV = InitializationVector;
-            }
+            using (var memoryStream = new MemoryStream(encodedData))
+            using (var cryptoStream = new CryptoStream(memoryStream, _managedRijndael.CreateDecryptor(), CryptoStreamMode.Read))
+            using (var streamReader = new StreamReader(cryptoStream, Encoding))
+                decryptedData = streamReader.ReadToEnd();
 
             return decryptedData.Deserialize<T>(SerializationMethod.Json);
         }
         public override string Encrypt<T>(T input)
         {
-            // Ensure the Rijndael instance is using the proper iv and key.
-            _managedRijndael.Key = Key;
-            _managedRijndael.IV = InitializationVector;
-
             using (var memoryStream = new MemoryStream())
             {
-                // Append the IV to the front of the stream.
-                memoryStream.Write(InitializationVector, 0, InitializationVector.Length);
                 using (var cryptoStream = new CryptoStream(memoryStream, _managedRijndael.CreateEncryptor(), CryptoStreamMode.Write))
                 {
                     // Get the raw data.
@@ -141,6 +106,30 @@ namespace Mauve.Security
                     return Encoding.GetString(encryptedData);
                 }
             }
+        }
+
+        #endregion
+
+        #region Private Methods
+
+        /// <summary>
+        /// Initializes the <see cref="RijndaelCryptographyProvider"/>.
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="initializationVector"></param>
+        /// <param name="encoding"></param>
+        /// <param name="cipherMode"></param>
+        private void Initialize(byte[] key, byte[] initializationVector, Encoding encoding, CipherMode cipherMode)
+        {
+            Key = key;
+            InitializationVector = initializationVector;
+            Encoding = encoding;
+            _managedRijndael = new RijndaelManaged
+            {
+                Mode = cipherMode,
+                Key = Key,
+                IV = InitializationVector
+            };
         }
 
         #endregion

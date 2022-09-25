@@ -58,7 +58,7 @@
     <Compile Include="Patterns\Mediator\IMediatorClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\CryptographyProvider.cs" />
-    <Compile Include="Security\RijndaelCryptographyService.cs" />
+    <Compile Include="Security\RijndaelCryptographyProvider.cs" />
     <Compile Include="SerializationMethod.cs" />
     <Compile Include="Serialization\BinarySerializationProvider.cs" />
     <Compile Include="Serialization\JsonSerializationProvider.cs" />
