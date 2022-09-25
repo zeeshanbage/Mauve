@@ -49,7 +49,9 @@ namespace Mauve.Tests.Core.Security
                 using (var rijndael = new RijndaelCryptographyProvider())
                 {
                     string encryptionResult = rijndael.Encrypt(input);
-                    object decryptionResult = rijndael.Decrypt<object>(encryptionResult);
+                    object decryptionResult = input is int
+                            ? rijndael.Decrypt<int>(encryptionResult)
+                            : rijndael.Decrypt<object>(encryptionResult);
                     bool result = input.Equals(decryptionResult);
                     Assert.AreEqual(expectedResult, result);
                 }
@@ -82,7 +84,10 @@ namespace Mauve.Tests.Core.Security
 
                 using (var rijndael = new RijndaelCryptographyProvider(key, iv))
                 {
-                    object decryptionResult = rijndael.Decrypt<object>(encryptedValue);
+                    object decryptionResult = input is int
+                            ? rijndael.Decrypt<int>(encryptedValue)
+                            : rijndael.Decrypt<object>(encryptedValue);
+
                     bool result = input.Equals(decryptionResult);
                     Assert.AreEqual(expectedResult, result);
                 }
