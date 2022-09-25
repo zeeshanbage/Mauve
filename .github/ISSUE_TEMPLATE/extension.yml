@@ -2,6 +2,26 @@ name: 🐙 Request a new Extension Method
 description: Have an idea to simplify a very repetative process for a specific type? While extension methods have a bad reputation, when implemented properly, they can be very powerful.
 labels: [enhancement,framework,under review]
 body:
+  - type: dropdown
+    id: version
+    attributes:
+      label: 🔢 Version
+      description: Which version of Mauve are you currently using?
+      options:
+        - 🐣 Pre-Release
+    validations:
+      required: true
+  - type: dropdown
+    id: product
+    attributes:
+      label: 🌠 Product
+      description: Which sub-product of Mauve is this feature for?
+      options:
+        - Ⓜ️ Framework
+        - 📝 Dapper Support Kit
+        - 💻 RestSharp Support Kit
+    validations:
+      required: true
   - type: input
     attributes:
       label: 🦖 What type is this extension method for?
