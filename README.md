@@ -17,3 +17,14 @@ Mauve offers a variety of useful extension methods for the most common data type
  Additionally, there are a few extension methods using generics for type safety that apply to all types.
 
 *See our [wiki](https://github.com/tacosontitan/Mauve/wiki/Mauve.Extensibility) for more details.*
+
+## Release Notes
+Here you can find the most recent release notes for each Mauve product.
+
+### Current Versions
+ - Mauve Framework: 🐣 Pre-Release
+   - Dapper Support Kit: 🐣 Pre-Release
+   - RestSharp Support Kit: 🐣 Pre-Release
+ - Mauve Extension
+   - Visual Studio Community: 🐣 Pre-Release
+   - Visual Studio Code: 🐣 Pre-Release
