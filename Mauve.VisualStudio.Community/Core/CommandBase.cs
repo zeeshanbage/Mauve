@@ -2,13 +2,18 @@
 using System.ComponentModel.Design;
 using System.Threading.Tasks;
 
+using EnvDTE;
+
 using Mauve.VisualStudio.Community.Commands;
 
 using Microsoft.VisualStudio.Shell;
+using Microsoft.VisualStudio.Shell.Interop;
+
+using ShellPackage = Microsoft.VisualStudio.Shell.Package;
 
 namespace Mauve.VisualStudio.Community.Core
 {
-    internal abstract class CommandBase<T>
+    internal abstract class CommandBase<T> where T : CommandBase<T>
     {
 
         #region Properties
@@ -24,7 +29,7 @@ namespace Mauve.VisualStudio.Community.Core
         /// <summary>
         /// VS Package that provides this command, not null.
         /// </summary>
-        protected AsyncPackage Package { get; private set; }
+        protected static AsyncPackage Package { get; private set; }
         /// <summary>
         /// Gets the instance of the command.
         /// </summary>
@@ -78,7 +83,29 @@ namespace Mauve.VisualStudio.Community.Core
 
         #region Protected Methods
 
+        protected void Alert(string message)
+        {
+            ThreadHelper.ThrowIfNotOnUIThread();
+
+            // Set the title.
+            string title = "Mauve";
+
+            // Show a message box to prove we were here
+            _ = VsShellUtilities.ShowMessageBox(
+                Package,
+                message,
+                title,
+                OLEMSGICON.OLEMSGICON_INFO,
+                OLEMSGBUTTON.OLEMSGBUTTON_OK,
+                OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
+        }
         protected abstract void Run();
+        protected string GetActiveDocumentName()
+        {
+            ThreadHelper.ThrowIfNotOnUIThread();
+            var dte = ShellPackage.GetGlobalService(typeof(SDTE)) as DTE;
+            return dte?.ActiveDocument?.Name;
+        }
 
         #endregion
 
