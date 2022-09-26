@@ -12,6 +12,60 @@ namespace Mauve.Security
             this(key: null, string.Empty, Encoding.Unicode, CipherMode.CBC, PaddingMode.PKCS7)
         { }
         /// <summary>
+        /// reates a new instance of the <see cref="RijndaelCryptographyProvider"/> using <see cref="CipherMode.CBC"/>, <see cref="PaddingMode.PKCS7"/>, and the specified <see cref="System.Text.Encoding"/> along with randomly generated symmetric algorithm parameters.
+        /// </summary>
+        /// <param name="encoding">The encoding that used during the encryption and decryption process.</param>
+        public RijndaelCryptographyProvider(Encoding encoding) :
+            this(key: null, string.Empty, encoding, CipherMode.CBC, PaddingMode.PKCS7)
+        { }
+        /// <summary>
+        /// reates a new instance of the <see cref="RijndaelCryptographyProvider"/> using <see cref="Encoding.Unicode"/>, <see cref="PaddingMode.PKCS7"/>, and the specified <see cref="CipherMode"/> along with randomly generated symmetric algorithm parameters.
+        /// </summary>
+        /// <param name="cipherMode">The <see cref="CipherMode"/> for operation of the symmetric algorithm.</param>
+        public RijndaelCryptographyProvider(CipherMode cipherMode) :
+            this(key: null, string.Empty, Encoding.Unicode, cipherMode, PaddingMode.PKCS7)
+        { }
+        /// <summary>
+        /// Creates a new instance of the <see cref="RijndaelCryptographyProvider"/> using <see cref="Encoding.Unicode"/>, <see cref="CipherMode.CBC"/>, and the specified <see cref="PaddingMode"/> along with randomly generated symmetric algorithm parameters.
+        /// </summary>
+        /// <param name="paddingMode">The <see cref="PaddingMode"/> used in the symmetric algorithm.</param>
+        public RijndaelCryptographyProvider(PaddingMode paddingMode) :
+            this(key: null, string.Empty, Encoding.Unicode, CipherMode.CBC, paddingMode)
+        { }
+        /// <summary>
+        /// Creates a new instance of the <see cref="RijndaelCryptographyProvider"/> using <see cref="Encoding.Unicode"/>, the specified <see cref="CipherMode"/> and <see cref="PaddingMode"/> along with randomly generated symmetric algorithm parameters.
+        /// </summary>
+        /// <param name="cipherMode">The <see cref="CipherMode"/> for operation of the symmetric algorithm.</param>
+        /// <param name="paddingMode">The <see cref="PaddingMode"/> used in the symmetric algorithm.</param>
+        public RijndaelCryptographyProvider(CipherMode cipherMode, PaddingMode paddingMode) :
+            this(key: null, string.Empty, Encoding.Unicode, cipherMode, paddingMode)
+        { }
+        /// <summary>
+        /// Creates a new instance of the <see cref="RijndaelCryptographyProvider"/> using <see cref="CipherMode.CBC"/> the specified <see cref="System.Text.Encoding"/> and <see cref="PaddingMode"/> along with randomly generated symmetric algorithm parameters.
+        /// </summary>
+        /// <param name="encoding">The encoding that used during the encryption and decryption process.</param>
+        /// <param name="paddingMode">The <see cref="PaddingMode"/> used in the symmetric algorithm.</param>
+        public RijndaelCryptographyProvider(Encoding encoding, PaddingMode paddingMode) :
+            this(key: null, string.Empty, encoding, CipherMode.CBC, paddingMode)
+        { }
+        /// <summary>
+        /// Creates a new instance of the <see cref="RijndaelCryptographyProvider"/> using <see cref="PaddingMode.PKCS7"/>, the specified <see cref="System.Text.Encoding"/> and <see cref="CipherMode"/> along with randomly generated symmetric algorithm parameters.
+        /// </summary>
+        /// <param name="encoding">The encoding that used during the encryption and decryption process.</param>
+        /// <param name="cipherMode">The <see cref="CipherMode"/> for operation of the symmetric algorithm.</param>
+        public RijndaelCryptographyProvider(Encoding encoding, CipherMode cipherMode) :
+            this(key: null, string.Empty, encoding, cipherMode, PaddingMode.PKCS7)
+        { }
+        /// <summary>
+        /// Creates a new instance of the <see cref="RijndaelCryptographyProvider"/> using the specified <see cref="System.Text.Encoding"/>, <see cref="CipherMode"/>, and <see cref="PaddingMode"/> along with randomly generated symmetric algorithm parameters.
+        /// </summary>
+        /// <param name="encoding">The encoding that used during the encryption and decryption process.</param>
+        /// <param name="cipherMode">The <see cref="CipherMode"/> for operation of the symmetric algorithm.</param>
+        /// <param name="paddingMode">The <see cref="PaddingMode"/> used in the symmetric algorithm.</param>
+        public RijndaelCryptographyProvider(Encoding encoding, CipherMode cipherMode, PaddingMode paddingMode) :
+            this(key: null, string.Empty, encoding, cipherMode, paddingMode)
+        { }
+        /// <summary>
         /// Creates a new instance of the <see cref="RijndaelCryptographyProvider"/> using the specified parameters and a randomly generated initialization vector while using <see cref="Encoding.Unicode"/>, <see cref="CipherMode.CBC"/> and <see cref="PaddingMode.PKCS7"/>.
         /// </summary>
         /// <param name="key"></param>
