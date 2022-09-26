@@ -5,14 +5,12 @@ using System.Text;
 
 using Mauve.Extensibility;
 
-using Newtonsoft.Json;
-
 namespace Mauve.Security
 {
     /// <summary>
     /// Represents a <see cref="CryptographyProvider"/> providing simplified access to the managed version of the <see cref="Rijndael"/> algorithm.
     /// </summary>
-    public class RijndaelCryptographyProvider : CryptographyProvider
+    public partial class RijndaelCryptographyProvider : CryptographyProvider
     {
 
         #region Fields
@@ -37,23 +35,6 @@ namespace Mauve.Security
         /// The encoding that used during the encryption and decryption process.
         /// </summary>
         public Encoding Encoding { get; private set; }
-
-        #endregion
-
-        #region Constructor
-
-        /// <summary>
-        /// Creates a new instance of the <see cref="RijndaelCryptographyProvider"/> using <see cref="CipherMode.CBC"/> along with a generated initialization vector and key.
-        /// </summary>
-        public RijndaelCryptographyProvider() =>
-            Initialize(null, null, Encoding.Unicode, CipherMode.CBC, PaddingMode.PKCS7);
-        /// <summary>
-        /// Creates a new instance of the <see cref="RijndaelCryptographyProvider"/> using <see cref="CipherMode.CBC"/> along with the specified initialization vector and key.
-        /// </summary>
-        /// <param name="key">The secret key to be utilized by the symmetric algorithm to encrypt and decrypt data.</param>
-        /// <param name="initializationVector">The initialization vector for the symmetric algorithm.</param>
-        public RijndaelCryptographyProvider(byte[] key, byte[] initializationVector) =>
-            Initialize(key, initializationVector, Encoding.Unicode, CipherMode.CBC, PaddingMode.PKCS7);
 
         #endregion
 
