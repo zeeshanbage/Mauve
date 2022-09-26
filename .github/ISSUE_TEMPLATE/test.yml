@@ -1,4 +1,5 @@
 name: 🧪 Request a new Test Case
+title: 🧪 Add a new test case.
 description: Have an idea for a test case we haven't accounted for yet? Share it with us, it'll only make Mauve stronger.
 labels: [test,under review]
 body:
