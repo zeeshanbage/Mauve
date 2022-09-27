@@ -26,7 +26,7 @@ namespace Mauve.Extensibility
                 case SerializationMethod.Binary: serializationProvider = new BinarySerializationProvider(); break;
                 case SerializationMethod.Xml: serializationProvider = new XmlSerializationProvider(); break;
                 case SerializationMethod.Json: serializationProvider = new JsonSerializationProvider(); break;
-                case SerializationMethod.Yaml: serializationProvider = null; break;
+                case SerializationMethod.Yaml: serializationProvider = new YamlSerializationProvider(); break;
                 default: serializationProvider = new RawSerializationProvider(); break;
             }
 
