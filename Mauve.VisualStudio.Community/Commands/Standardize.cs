@@ -1,18 +1,10 @@
 ﻿using System;
-using System.ComponentModel.Design;
-using System.Globalization;
-using System.Runtime.Remoting.Contexts;
-using System.Threading;
-using System.Threading.Tasks;
 
 using EnvDTE;
 
 using Mauve.VisualStudio.Community.Core;
 
 using Microsoft.VisualStudio.Shell;
-using Microsoft.VisualStudio.Shell.Interop;
-
-using Task = System.Threading.Tasks.Task;
 
 namespace Mauve.VisualStudio.Community.Commands
 {
@@ -50,7 +42,7 @@ namespace Mauve.VisualStudio.Community.Commands
                 _ = activeDocument.Save();
 
                 // Notify that we've finished our work.
-                //Alert("Standardization complete.");
+                Alert("Standardization complete.");
             }
         }
 
