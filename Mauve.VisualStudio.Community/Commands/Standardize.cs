@@ -50,7 +50,7 @@ namespace Mauve.VisualStudio.Community.Commands
                 _ = activeDocument.Save();
 
                 // Notify that we've finished our work.
-                Alert("Standardization complete.");
+                //Alert("Standardization complete.");
             }
         }
 
