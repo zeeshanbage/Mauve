@@ -14,6 +14,7 @@ namespace Mauve.Tests.Core.Extensibility
         [DataRow(32, SerializationMethod.Binary)]
         [DataRow(32, SerializationMethod.Xml)]
         [DataRow(32, SerializationMethod.Json)]
+        [DataRow(32, SerializationMethod.Yaml)]
         public void SerializeAndDeserialize(int input, SerializationMethod serializationMethod)
         {
             string serializedInput = input.Serialize(serializationMethod);
